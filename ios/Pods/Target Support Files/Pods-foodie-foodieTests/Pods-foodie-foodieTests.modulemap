@@ -1,0 +1,6 @@
+module Pods_foodie_foodieTests {
+  umbrella header "Pods-foodie-foodieTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
