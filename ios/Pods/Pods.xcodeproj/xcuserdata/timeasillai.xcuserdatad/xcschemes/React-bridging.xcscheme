@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5D49FA97D16E84D298A7C7F5A6F1D615"
-               BuildableName = "libReact-bridging.a"
+               BuildableName = "react_bridging.framework"
                BlueprintName = "React-bridging"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
