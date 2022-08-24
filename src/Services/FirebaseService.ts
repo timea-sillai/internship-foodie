@@ -1,17 +1,23 @@
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import { Alert } from 'react-native';
 
-export function signUp(emal: string, password: string) {
+export function signUp(name: string, email: string, password: string) {
   auth()
-    .createUserWithEmailAndPassword(emal, password)
-    .then(() => {
-      console.log('User account created & signed in!');
+    .createUserWithEmailAndPassword(email, password)
+    .then(async response => {
+      const userId = await response.user.getIdToken();
+      firestore().collection('Users').doc(userId).set({
+        name,
+        userId
+      });
     })
     .catch(error => {
-      if (error.code === 'auth/email-already-in-use') {
-        console.log('That email address is already in use!');
+      if (error.code === 'auth/email-already-exists') {
+        Alert.alert('SignUp', 'That email address is already in use!');
       }
       if (error.code === 'auth/invalid-email') {
-        console.log('That email address is invalid!');
+        Alert.alert('SignUp', 'That email address is invalid!');
       }
       console.error(error);
     });
