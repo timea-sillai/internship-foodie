@@ -2,8 +2,8 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import { Alert } from 'react-native';
 
-export function signUp(name: string, email: string, password: string) {
-  auth()
+export async function signUp(name: string, email: string, password: string) {
+  await auth()
     .createUserWithEmailAndPassword(email, password)
     .then(async response => {
       const userId = await response.user.getIdToken();
@@ -21,4 +21,8 @@ export function signUp(name: string, email: string, password: string) {
       }
       console.error(error);
     });
+}
+
+export async function signIn(email: string, password: string) {
+  await auth().signInWithEmailAndPassword(email, password);
 }

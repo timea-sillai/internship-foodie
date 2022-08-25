@@ -1,37 +1,35 @@
 import React, { FunctionComponent, useState } from 'react';
 import { View, Image, useWindowDimensions, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { FoodieTextInput } from '../Components/FoodieTextInput';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { signUp } from '../Services/FirebaseService';
 import { useNavigation } from '@react-navigation/native';
+import { FoodieTextInput } from '../Components/FoodieTextInput';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App';
+import { signIn } from '../Services/FirebaseService';
 
-const SignUpPage: FunctionComponent = () => {
+const SignInPage: FunctionComponent = () => {
   const { width } = useWindowDimensions();
-  const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const userSignUp = async () => {
+  const userSignIn = async () => {
     try {
-      await signUp(name, email, password);
-      navigation.navigate('SignInPage');
+      await signIn(email, password);
+      navigation.navigate('SignUpPage');
     } catch (err) {
-      console.warn('[SIGNUP]', err);
+      console.warn('[SIGNIN]', err);
     }
   };
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/grocery-sgu.png')}
+        source={require('../../assets/images/grocery-sgi.png')}
         style={{ ...styles.image, width }}
       />
       <KeyboardAwareScrollView style={styles.keyboardView}>
-        <Text style={styles.titleText}>Sign Up</Text>
-        <FoodieTextInput label={'Name'} value={name} onChangeValue={setName} />
+        <Text style={styles.titleText}>{'Sign In'}</Text>
         <FoodieTextInput label={'Email'} value={email} onChangeValue={setEmail} />
         <FoodieTextInput
           rightIcon={require('../../assets/images/password-icon.jpeg')}
@@ -40,16 +38,16 @@ const SignUpPage: FunctionComponent = () => {
           onChangeValue={setPassword}
           secureTextEntry={true}
         />
-        <TouchableOpacity style={styles.button} onPress={userSignUp}>
-          <Text style={styles.textButton}>{'SIGN UP'}</Text>
+        <TouchableOpacity style={styles.button} onPress={userSignIn}>
+          <Text style={styles.textButton}>{'SIGN IN'}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.touchable}
-          onPress={() => navigation.navigate('SignInPage')}
+          onPress={() => navigation.navigate('SignUpPage')}
         >
           <Text style={styles.textDown}>
-            {'Already have an Account? '}
-            <Text style={styles.textSignIn}>{'Sign In'}</Text>
+            {"Don't have an Account? "}
+            <Text style={styles.textSignUp}>{'Sign Up'}</Text>
           </Text>
         </TouchableOpacity>
       </KeyboardAwareScrollView>
@@ -76,8 +74,8 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     color: '#1B1B1B',
     textAlign: 'center',
-    marginBottom: 8,
-    marginTop: 330
+    marginTop: 384,
+    bottom: 34
   },
   input: {
     borderWidth: 1,
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14
   },
   touchable: {
-    marginTop: 64
+    marginTop: 84
   },
   textDown: {
     fontSize: 14,
@@ -110,10 +108,10 @@ const styles = StyleSheet.create({
     color: '#777777',
     textAlign: 'center'
   },
-  textSignIn: {
+  textSignUp: {
     fontSize: 14,
     color: '#40AA54'
   }
 });
 
-export default SignUpPage;
+export default SignInPage;
