@@ -1171,11 +1171,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBAuth:
     :path: "../node_modules/@react-native-firebase/auth"
-<<<<<<< Updated upstream
-=======
   RNFBFirestore:
     :path: "../node_modules/@react-native-firebase/firestore"
->>>>>>> Stashed changes
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNScreens:
@@ -1244,4 +1241,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 384df7eaef12119e19602814a7d91ba987e1e077
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2
