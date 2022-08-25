@@ -49,7 +49,7 @@ export const FoodieTextInput: FunctionComponent<FoodieTextInputProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: { marginHorizontal: 22, marginTop: 26, justifyContent: 'center' },
+  container: { marginHorizontal: 22, marginTop: 26, justifyContent: 'center', bottom: 25 },
   input: {
     borderWidth: 1,
     borderColor: '#D7D7D7',
@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
     left: 8,
     color: '#A3A3A3',
     backgroundColor: '#F5F5F5',
-    paddingHorizontal: 7
+    paddingHorizontal: 7,
+    fontFamily: 'Lato-Semibold'
   },
   icon: {
     width: 20,
