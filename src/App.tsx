@@ -14,6 +14,7 @@ export type RootStackParamList = {
   SignUpPage: undefined;
   SignInPage: undefined;
   SplashPage: undefined;
+  Home: undefined;
 };
 
 export interface IAppProps {}
@@ -26,9 +27,9 @@ export class App extends Component<IAppProps, IAppState> {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='SplashPage' component={SplashPage} />
           <Stack.Screen name='SignInPage' component={SignInPage} />
           <Stack.Screen name='SignUpPage' component={SignUpPage} />
-          <Stack.Screen name='SplashPage' component={SplashPage} />
         </Stack.Navigator>
       </NavigationContainer>
     );
