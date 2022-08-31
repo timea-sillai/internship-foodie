@@ -25,6 +25,12 @@ export type FeedCarousel = {
 
 export type FeedData = { items?: FeedItem[]; carousels?: FeedCarousel[] };
 
+export type SearchResult = {
+  display: string;
+  search_value: string;
+  type: string;
+};
+
 const options = {
   baseURL: 'https://tasty.p.rapidapi.com',
   headers: {
@@ -62,6 +68,20 @@ class AxiosService {
       items: items,
       carousels: carousels
     };
+  };
+
+  fetchAutocompleteSuggestions = async (searchInput: string): Promise<SearchResult[]> => {
+    return await axiosInstance
+      .get('/recipes/auto-complete', {
+        params: { prefix: searchInput }
+      })
+      .then(function (response) {
+        const result = response.data.results;
+        return result;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 }
 

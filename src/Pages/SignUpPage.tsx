@@ -17,7 +17,7 @@ const SignUpPage: FunctionComponent = () => {
   const userSignUp = async () => {
     try {
       await signUp(name, email, password);
-      navigation.navigate('SignInPage');
+      navigation.navigate('HomePage');
     } catch (err) {
       console.warn('[SIGNUP]', err);
     }

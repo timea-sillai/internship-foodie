@@ -6,15 +6,19 @@ import {
   TextInput,
   Image,
   ImageSourcePropType,
-  TouchableOpacity
+  TouchableOpacity,
+  ViewStyle
 } from 'react-native';
 
 type FoodieTextInputProps = {
-  label: string;
   value: string;
   onChangeValue(value: string): void;
   rightIcon?: ImageSourcePropType;
+  leftIcon?: ImageSourcePropType;
   secureTextEntry?: boolean;
+  placeholder?: string;
+  label?: string;
+  textInputStyle?: ViewStyle;
 };
 
 export const FoodieTextInput: FunctionComponent<FoodieTextInputProps> = ({
@@ -22,27 +26,32 @@ export const FoodieTextInput: FunctionComponent<FoodieTextInputProps> = ({
   value,
   onChangeValue,
   rightIcon,
-  secureTextEntry
+  leftIcon,
+  secureTextEntry,
+  placeholder,
+  textInputStyle
 }) => {
   const [secureText, setSecureText] = useState<boolean>(secureTextEntry);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      {label && <Text style={styles.label}>{label}</Text>}
       {rightIcon && (
-        <TouchableOpacity style={styles.touchable} onPress={() => setSecureText(!secureText)}>
+        <TouchableOpacity style={styles.rightIcon} onPress={() => setSecureText(!secureText)}>
           <Image
             source={rightIcon}
             style={{ ...styles.icon, tintColor: secureText ? 'blue' : 'black' }}
           />
         </TouchableOpacity>
       )}
+      {leftIcon && <Image source={leftIcon} style={styles.leftIcon} />}
       <TextInput
-        style={styles.input}
+        style={[styles.input, textInputStyle]}
         onChangeText={onChangeValue}
         value={value}
         secureTextEntry={secureText}
         blurOnSubmit={false}
+        placeholder={placeholder}
       />
     </View>
   );
@@ -71,10 +80,19 @@ const styles = StyleSheet.create({
     width: 20,
     height: 17
   },
-  touchable: {
+  leftIcon: {
+    width: 16,
+    height: 16,
+    tintColor: '#1B1B1B',
     alignSelf: 'center',
     position: 'absolute',
-    right: 16,
+    left: 13,
+    zIndex: 1
+  },
+  rightIcon: {
+    alignSelf: 'center',
+    position: 'absolute',
+    right: 14,
     zIndex: 1
   }
 });
