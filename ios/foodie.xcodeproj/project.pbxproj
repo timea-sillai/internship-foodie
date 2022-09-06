@@ -11,10 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3DC2ADBE28B4FFF9005DED8C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		3DC2ADBF28B4FFF9005DED8C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		3DC2ADC028B4FFF9005DED8C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		3DC2ADC128B4FFF9005DED8C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		3DC2ADBE28B4FFF9005DED8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		3DC2ADBF28B4FFF9005DED8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		3DC2ADC028B4FFF9005DED8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		3DC2ADC128B4FFF9005DED8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		7535F16928B399B800CC4F23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7535F16828B399B700CC4F23 /* GoogleService-Info.plist */; };
 		75D1A97C28B780DF00376A52 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75D1A96C28B780DE00376A52 /* Lato-BlackItalic.ttf */; };
 		75D1A97D28B780DF00376A52 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75D1A96D28B780DE00376A52 /* Lato-Heavy.ttf */; };
@@ -320,14 +320,14 @@
 				75D1A98A28B780DF00376A52 /* Lato-Medium.ttf in Resources */,
 				75D1A97C28B780DF00376A52 /* Lato-BlackItalic.ttf in Resources */,
 				75D1A98628B780DF00376A52 /* Lato-BoldItalic.ttf in Resources */,
-				3DC2ADC128B4FFF9005DED8C /* (null) in Resources */,
+				3DC2ADC128B4FFF9005DED8C /* BuildFile in Resources */,
 				75D1A98428B780DF00376A52 /* Lato.ttf in Resources */,
 				75D1A98728B780DF00376A52 /* Lato-SemiboldItalic.ttf in Resources */,
-				3DC2ADBE28B4FFF9005DED8C /* (null) in Resources */,
-				3DC2ADC028B4FFF9005DED8C /* (null) in Resources */,
+				3DC2ADBE28B4FFF9005DED8C /* BuildFile in Resources */,
+				3DC2ADC028B4FFF9005DED8C /* BuildFile in Resources */,
 				75D1A97F28B780DF00376A52 /* Lato-Thin.ttf in Resources */,
 				75D1A98028B780DF00376A52 /* Lato-Semibold.ttf in Resources */,
-				3DC2ADBF28B4FFF9005DED8C /* (null) in Resources */,
+				3DC2ADBF28B4FFF9005DED8C /* BuildFile in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				75D1A98528B780DF00376A52 /* Lato-Bold.ttf in Resources */,
 				75D1A98328B780DF00376A52 /* Lato-Italic.ttf in Resources */,
