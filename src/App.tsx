@@ -5,6 +5,7 @@ import SplashPage from './Pages/SplashPage';
 import { enableScreens } from 'react-native-screens';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
+import HomePage from './Pages/HomePage';
 
 enableScreens(true);
 
@@ -14,7 +15,7 @@ export type RootStackParamList = {
   SignUpPage: undefined;
   SignInPage: undefined;
   SplashPage: undefined;
-  Home: undefined;
+  HomePage: undefined;
 };
 
 export interface IAppProps {}
@@ -30,6 +31,7 @@ export class App extends Component<IAppProps, IAppState> {
           <Stack.Screen name='SplashPage' component={SplashPage} />
           <Stack.Screen name='SignInPage' component={SignInPage} />
           <Stack.Screen name='SignUpPage' component={SignUpPage} />
+          <Stack.Screen name='HomePage' component={HomePage} />
         </Stack.Navigator>
       </NavigationContainer>
     );

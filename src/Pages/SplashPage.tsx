@@ -14,7 +14,7 @@ const SplashPage: FunctionComponent = () => {
       try {
         const isValidToken = await checkIdToken();
         if (isValidToken) {
-          navigation.navigate('SignInPage');
+          navigation.navigate('HomePage');
         } else {
           navigation.navigate('SignUpPage');
         }

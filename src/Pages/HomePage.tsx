@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native';
 import { CarouselBlock } from '../Components/CarouselBlock';
+import { TopBar } from '../Components/TopBar';
 import axiosService, { FeedData } from '../Services/AxiosService';
 
 const HomePage: FunctionComponent = () => {
@@ -40,6 +41,7 @@ const HomePage: FunctionComponent = () => {
         <ActivityIndicator color='#999999' size='large' />
       ) : (
         <>
+          <TopBar showSearchBar={true} />
           <ScrollView style={styles.categoriesContainer} showsVerticalScrollIndicator={false}>
             {feedData?.carousels?.map(carousel => {
               return <CarouselBlock data={carousel} />;
