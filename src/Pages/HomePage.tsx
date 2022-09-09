@@ -43,8 +43,8 @@ const HomePage: FunctionComponent = () => {
         <>
           <TopBar showSearchBar={true} />
           <ScrollView style={styles.categoriesContainer} showsVerticalScrollIndicator={false}>
-            {feedData?.carousels?.map(carousel => {
-              return <CarouselBlock data={carousel} />;
+            {feedData?.carousels?.map((carousel, index) => {
+              return <CarouselBlock key={index} data={carousel} />;
             })}
           </ScrollView>
         </>

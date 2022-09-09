@@ -6,6 +6,8 @@ import { enableScreens } from 'react-native-screens';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import HomePage from './Pages/HomePage';
+import RecipeDetailsPage from './Pages/RecipeDetailsPage';
+import { FeedItemDetails } from './Services/AxiosService';
 
 enableScreens(true);
 
@@ -16,6 +18,7 @@ export type RootStackParamList = {
   SignInPage: undefined;
   SplashPage: undefined;
   HomePage: undefined;
+  RecipeDetailsPage: { item: FeedItemDetails };
 };
 
 export interface IAppProps {}
@@ -32,6 +35,7 @@ export class App extends Component<IAppProps, IAppState> {
           <Stack.Screen name='SignInPage' component={SignInPage} />
           <Stack.Screen name='SignUpPage' component={SignUpPage} />
           <Stack.Screen name='HomePage' component={HomePage} />
+          <Stack.Screen name='RecipeDetailsPage' component={RecipeDetailsPage} />
         </Stack.Navigator>
       </NavigationContainer>
     );

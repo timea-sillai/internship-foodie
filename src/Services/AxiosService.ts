@@ -10,6 +10,30 @@ export type FeedItemDetails = {
   name: string;
   credits: CreditType[];
   description: string;
+  id: number;
+};
+
+export type Instructions = {
+  text: string;
+  position: number;
+};
+
+export type NutritionDetails = {
+  protein: number;
+  sugar: number;
+  fiber: number;
+  calories: number;
+  carbohydrates: number;
+  fat: number;
+};
+
+export type RecipeItem = {
+  name: string;
+  description: string;
+  thumbnail_url: string;
+  nutrition: NutritionDetails;
+  credits: CreditType;
+  instruction: Instructions;
 };
 
 export type FeedItem = {
@@ -34,7 +58,7 @@ export type SearchResult = {
 const options = {
   baseURL: 'https://tasty.p.rapidapi.com',
   headers: {
-    'X-RapidAPI-Key': '38c1ebc0e1msh7e95f4dd90c1977p15ba38jsnb9629b96b64f',
+    'X-RapidAPI-Key': '2e8b9cc6femsh1719093212e7620p1df84bjsn4fc760ab2557',
     'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
   }
 };
@@ -77,6 +101,20 @@ class AxiosService {
       })
       .then(function (response) {
         const result = response.data.results;
+        return result;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  fetchRecipeDetails = async (recipeId: string): Promise<RecipeItem> => {
+    return await axiosInstance
+      .get('/recipes/detail', {
+        params: { id: recipeId }
+      })
+      .then(function (response) {
+        const result = response.data;
         return result;
       })
       .catch(function (error) {
